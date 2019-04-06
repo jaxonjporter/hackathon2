@@ -6,6 +6,7 @@ class Api::VideosController < ApplicationController
   end
 
   def create
+    binding.pry
     video = current_user.videos.new(video_params)
     if video.save
       render json: video

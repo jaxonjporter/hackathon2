@@ -1,19 +1,27 @@
 import React from 'react'
 import { Form, Button, Header, } from 'semantic-ui-react'
 import { AuthConsumer,} from '../providers/AuthProvider'
+import axios from 'axios';
 
 class VideoForm extends React.Component {
-  state = { formValues: { title: "", video_url: "", }, }
+  state = { title: "", video_url: "", }
 
 
 
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { formValues: { title, video_url, }, } = this.state;
+    const newVideo = this.state;
+    debugger
     const { auth: { user, }, } = this.props
     e.preventDefault()
-    debugger
+    axios.post('/api/videos', newVideo)
+      .then( res => {
+        debugger
+      }
+      ).catch( res => {debugger})
+
+      
     
     // axios.post('/api/courses', course)
     //   .then( res => {
@@ -28,14 +36,14 @@ class VideoForm extends React.Component {
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState( { formValues: { [name]: value, }, }); 
+    this.setState( { [name]: value, }); 
   }
 
   render() {
-    const { formValues: { title, video_url, }, } = this.state
+    const { title, video_url, } = this.state
     return (
       <>
-        <Header content='Add New Video' />
+        <Header as='h1' content='Add New Video' textAlign="center" style={{marginTop: '10px'}}/>
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
             label='Video Title'
