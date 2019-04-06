@@ -16,7 +16,7 @@ class VideoShow extends React.Component {
 
     return(
     videos.map( video => (
-        <Link to='/VideoShow'>
+        <Link to='./VideoShow'>
             <Card style={{ width: '300px', height: '200px', transform: 'translate(5em)'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
             </Card>
