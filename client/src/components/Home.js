@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Card, Image, Icon, Grid } from 'semantic-ui-react';
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component{
   state = {
@@ -17,12 +18,14 @@ class Home extends React.Component{
 
     return(
     videos.map( video => (
+          <Link to='/VideoShow'>
             <Card style={{ width: '150px', height: '100px'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
               <Card.Content>
               <Card.Header>{video} Video Title</Card.Header>
               </Card.Content>
             </Card>
+          </Link>
     )
     ))
   }
