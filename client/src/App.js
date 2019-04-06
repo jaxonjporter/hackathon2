@@ -19,8 +19,12 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path='/addvideo' component={VideoForm} />
+<<<<<<< Updated upstream
           <ProtectedRoute exact path="/VideoShow" component={VideoShow} />
+=======
+>>>>>>> Stashed changes
           <Route exact path="/login" component={Login} />
+          <Route exact path="/VideoShow" component={VideoShow} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
         </Switch>
