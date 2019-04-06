@@ -3,7 +3,7 @@ import { Container, Segment, Image, Button, Header, Grid, Divider, Icon, Search,
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import { Player, ControlBar, } from 'video-react';
+// import { Player, ControlBar, } from 'video-react';
 
 class VideoShow extends React.Component {
   state = {
