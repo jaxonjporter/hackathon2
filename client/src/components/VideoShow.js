@@ -15,7 +15,9 @@ class VideoShow extends React.Component {
   componentDidMount() {
     const { match: { params: { id, video_id } } } = this.props
     axios.get(`/api/videos/${video_id}/comments`)
-      .then( res => this.setState({ videos: res.data, }))
+      .then( res => {
+        this.setState({ comments: res.data, })
+      })
     axios.get("/api/videos/")
       .then( res => this.setState({ videos: res.data, }))
 }
@@ -40,7 +42,10 @@ class VideoShow extends React.Component {
     return(
     comments.map( comment => (
       <Segment style={{ width: '100%'}} key={comment.id}>
-        { comment }
+        { comment.title }
+        <Segment>
+          {comment.body}
+        </Segment>
         <Button
           onClick={this.handleDelete}
           size='mini'

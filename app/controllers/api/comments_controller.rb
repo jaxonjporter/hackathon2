@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   before_action :set_comment, only: [:update, :destroy, :show]
 
   def index
-    render json: @videos.comments
+    render json: @video.comments
   end
 
   def show
