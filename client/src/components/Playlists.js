@@ -12,7 +12,7 @@ export default class Playlist extends React.Component {
 
     return(
     playlists.map( p => (
-          <Link to='/VideoShow'>
+          <Link to='/PlaylistShow'>
             <Card style={{ width: '150px', height: '100px'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
               <Card.Content>

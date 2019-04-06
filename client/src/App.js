@@ -11,6 +11,7 @@ import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import VideoShow from './components/VideoShow'
 import Playlists from './components/Playlists'
+import PlaylistShow from './components/PlaylistShow'
 
 const App = () => (
   <>
@@ -23,6 +24,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/VideoShow" component={VideoShow} />
           <Route exact path="/Playlists" component={Playlists} />
+          <Route exact path="/PlaylistShow" component={PlaylistShow} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
         </Switch>
