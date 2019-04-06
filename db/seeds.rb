@@ -8,7 +8,7 @@
   2.times do
     v = Video.create(
       title: Faker::Music::RockBand.name,
-      video_url: 'https://youtu.be/dQw4w9WgXcQ',
+      video_url: 'https://www.youtube.com/embed/CMNry4PE93Y',
       user_id: user.id
     )
     3.times do
@@ -32,7 +32,7 @@ end
   2.times do
     v = Video.create(
       title: Faker::Music::RockBand.name,
-      video_url: 'https://youtu.be/dQw4w9WgXcQ',
+      video_url: 'https://www.youtube.com/embed/CMNry4PE93Y',
       user_id: user.id
     )
     3.times do

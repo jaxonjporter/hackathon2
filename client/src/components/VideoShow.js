@@ -3,6 +3,7 @@ import { Container, Segment, Image, Button, Header, Grid, Divider, Icon, Search,
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { Player, ControlBar, } from 'video-react';
 
 class VideoShow extends React.Component {
   state = {
@@ -24,7 +25,7 @@ class VideoShow extends React.Component {
 
     return(
     videos.map( video => (
-        <Link to='/VideoShow'>
+        <Link to='./VideoShow'>
             <Card style={{ width: '300px', height: '200px', transform: 'translate(5em)'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
             </Card>
@@ -70,7 +71,15 @@ class VideoShow extends React.Component {
 
     return(
       <Fragment>
-        <Image style={{width: '100%', height: '35em', position: 'relative'}} src="https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt=""/>
+        <div style={{height: '500px'}}>
+        <iframe style={{width:'100%', height: '100%'}} 
+          title='Endgame'
+          src="https://www.youtube.com/embed/DkFmPuWYBHg" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        </div>
         <Container>
           <Segment>
             <SegmentGroupStyles horizontal>
