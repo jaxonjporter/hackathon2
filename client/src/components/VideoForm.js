@@ -17,7 +17,7 @@ class VideoForm extends React.Component {
     e.preventDefault()
     axios.post('/api/videos', newVideo)
       .then( res => {
-        debugger
+        this.props.history.push('/')
       }
       ).catch( res => {debugger})
 
