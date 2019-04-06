@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Card, Image, Icon, Grid } from 'semantic-ui-react';
+import { Container, Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component{

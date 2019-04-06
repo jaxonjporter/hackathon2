@@ -9,7 +9,9 @@ class VideoShow extends React.Component {
   state = {
     users: 'Nate',
     videos: ['This', 'that', 'theother', 'them', 'those'],
-    comments: ['poop']
+    comments: ['poop'],
+    count: 0,
+    count2: 0
   }
 
   componentDidMount() {
@@ -70,9 +72,20 @@ class VideoShow extends React.Component {
     })
   }
 
+  handleCount = (e) => {
+      let _count = (this.state.count + 1)
+      this.setState({ count: _count}
+    )
+  }
+
+  handleCount2 = (e) => {
+      let _count2 = (this.state.count2 + 1)
+      this.setState({ count2: _count2}
+    )
+  }
   
   render() {
-    const { videos } = this.state
+    const { videos, count, count2 } = this.state
 
     return(
       <Fragment>
@@ -91,17 +104,21 @@ class VideoShow extends React.Component {
               <h1> {/* Video.Title */} Video Title </h1>
                 <ButtonStyles
                   name="like"
+                  onClick={this.handleCount}
                   inverted
                   secondary
                   >
                   Like
+                  {count}
                 </ButtonStyles>
                 <ButtonStyles
                   name="dislike"
+                  onClick={this.handleCount2}
                   inverted
                   secondary
                   >
                   Dislike
+                  {count2}
                 </ButtonStyles>
               </SegmentGroupStyles>
               <SegmentGroupStyles horizontal>

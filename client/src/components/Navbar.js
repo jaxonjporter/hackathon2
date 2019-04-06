@@ -16,6 +16,9 @@ class Navbar extends React.Component {
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
           />
+          <Button as={Link} to='/Playlists'>
+            View Playlists
+          </Button>
           <Button as={Link} to='/addvideo'>
             New Video
           </Button>
