@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_205710) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "title"
+    t.integer "video_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
