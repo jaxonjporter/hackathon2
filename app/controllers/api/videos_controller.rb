@@ -1,4 +1,4 @@
-class Api::VideoController < ApplicationController
+class Api::VideosController < ApplicationController
   before_action :set_video, only: [:show, :update, :destroy]
 
   def index
