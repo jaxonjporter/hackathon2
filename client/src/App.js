@@ -13,6 +13,7 @@ import VideoShow from './components/VideoShow'
 import Playlists from './components/Playlists'
 import PlaylistShow from './components/PlaylistShow'
 
+import CommentForm from './components/CommentForm';
 
 const App = () => (
   <>
@@ -22,6 +23,7 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path='/addvideo' component={VideoForm} />
+          <Route exact path='/videos/:video_id/newcomment' component={CommentForm} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/videos/:video_id/VideoShow" component={VideoShow} />
           <Route exact path="/Playlists" component={Playlists} />
