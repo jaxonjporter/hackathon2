@@ -11,7 +11,6 @@ class Home extends React.Component{
 componentDidMount() {
     axios.get("/api/videos")
       .then( res => this.setState({ videos: res.data, }))
-  debugger
 }
 
   renderVideos = () => {
