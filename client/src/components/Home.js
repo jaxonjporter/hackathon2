@@ -8,10 +8,11 @@ class Home extends React.Component{
     videos: [],
   }
 
-  componentDidMount() {
-    axios.get("/api/videos")
-      .then( res => this.setState({ videos: res.data }))
-  }
+// componentDidMount() {
+//     axios.get("/api/videos")
+//       .then( res => this.setState({ videos: res.data, }))
+//   debugger
+// }
 
   renderVideos = () => {
     const { videos } = this.state
