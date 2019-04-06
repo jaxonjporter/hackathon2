@@ -8,11 +8,11 @@ class Home extends React.Component{
     videos: [],
   }
 
-// componentDidMount() {
-//     axios.get("/api/videos")
-//       .then( res => this.setState({ videos: res.data, }))
-//   debugger
-// }
+componentDidMount() {
+    axios.get("/api/videos")
+      .then( res => this.setState({ videos: res.data, }))
+  debugger
+}
 
   renderVideos = () => {
     const { videos } = this.state
@@ -23,7 +23,7 @@ class Home extends React.Component{
             <Card style={{ width: '150px', height: '100px'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
               <Card.Content>
-              <Card.Header>{video} Video Title</Card.Header>
+              <Card.Header>{video.title}</Card.Header>
               </Card.Content>
             </Card>
           </Link>
