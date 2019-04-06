@@ -2,6 +2,7 @@ import React, {Fragment} from 'react'
 import { Container, Segment, Image, Button, Header, Grid, Divider, Icon, Search, Card } from 'semantic-ui-react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Player, ControlBar, } from 'video-react';
 
 class VideoShow extends React.Component {
   state = {
@@ -41,7 +42,15 @@ class VideoShow extends React.Component {
 
     return(
       <Fragment>
-        <Image style={{width: '100%', height: '35em', position: 'relative'}} src="https://images.unsplash.com/photo-1528818955841-a7f1425131b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt=""/>
+        <div style={{height: '500px'}}>
+        <iframe style={{width:'100%', height: '100%'}} 
+          title='Endgame'
+          src="https://www.youtube.com/embed/DkFmPuWYBHg" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+        </div>
         <Container>
           <Segment>
             <SegmentGroupStyles horizontal>

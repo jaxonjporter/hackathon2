@@ -18,7 +18,7 @@ componentDidMount() {
 
     return(
     videos.map( video => (
-          <Link to='/VideoShow'>
+          <Link to={`/videos/${video.id}/VideoShow`} key={video.id}>
             <Card style={{ width: '150px', height: '100px'}}>
               <Image src='https://react.semantic-ui.com/images/avatar/large/daniel.jpg' />
               <Card.Content>
