@@ -1,11 +1,22 @@
 import React from 'react'
 import { Card, Header, Image, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 export default class Playlist extends React.Component {
   state = {
-    playlists: ['edm', 'rap', 'dubstep']
+    playlists: []
   }
+
+  componentDidMount() {
+    const { playlists } = this.state
+
+      axios.get(`/api/playlists/${playlists.id}/videos`)
+        .then( res => {
+          this.setState({ playlists: res.data })
+        })
+    }
+  
 
   renderPlaylists = () => {
     const { playlists } = this.state
