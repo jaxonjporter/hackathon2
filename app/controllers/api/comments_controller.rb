@@ -1,9 +1,9 @@
 class Api::CommentsController < ApplicationController
-  before_action :set_user
+  before_action :set_video
   before_action :set_comment, only: [:update, :destroy, :show]
 
   def index
-    render json: current_user.comments
+    render json: @videos.comments
   end
 
   def show
@@ -11,7 +11,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    comment = current_user.comments.new(comment_params)
+    comment = @video.comments.new(comment_params)
       if comment.save
         render json: comment
       else
@@ -33,14 +33,15 @@ class Api::CommentsController < ApplicationController
 
 private
 
-def set_user
-  @user = User.find(params[:user_id])
-end
+  def set_video
+    @video = Video.find(params[:video_id])
+  end
 
-def set_comment
-  @comment = Comment.find(params[:id])
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-def comment_params
-  params.require(:comment).permit(:title, :body)
+  def comment_params
+    params.require(:comment).permit(:title, :body)
   end
 end
