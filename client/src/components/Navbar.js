@@ -1,7 +1,8 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Menu, } from 'semantic-ui-react'
+import { Menu, Image, Button } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
+import styled from 'styled-components'
 
 class Navbar extends React.Component {
   
@@ -15,6 +16,9 @@ class Navbar extends React.Component {
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
           />
+          <Button>
+            New Video
+          </Button>
         </Menu.Menu>
       )
     } else {
@@ -42,13 +46,9 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu style={{height: '70px'}} pointing secondary>
           <Link to='/'>
-            <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-            />
+          <img style={{height: '60px', width: 'auto'}} src="https://resources-live.sketch.cloud/files/0c691bf6-95ea-4f35-ad3e-46e842eefe7b.png?Expires=1554685200&Signature=mCOAD2p5sijiSsM4HWpafP-cQs4TRHAouci4hZ3tLuXuA~Rs1Fqe8qYhPw3PvbOg2~vl0hr98Uy3ElhQY5~cO9wXDPzYtAR0lrlBZoFTBFmEkK6Qc8LuZfloXO8sT~b-bmR9xhm1v0mGDwIhJABaOqlq6xbKgBGyjfc-0CVJRXE_&Key-Pair-Id=APKAJOITMW3RWOLNNPYA" alt=""/>
           </Link>
             { this.rightNavItems() }
         </Menu>
@@ -56,6 +56,7 @@ class Navbar extends React.Component {
     )
   }
 }
+
 
 export class ConnectedNavbar extends React.Component {
   render() {
