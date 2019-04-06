@@ -1,8 +1,8 @@
-class Api::VideoController < ApplicationController
-  before_action :set_videos, only: [:show, :update, :destroy]
+class Api::VideosController < ApplicationController
+  before_action :set_video, only: [:show, :update, :destroy]
 
   def index
-    render json: current_user.videos
+    render json: Video.all
   end
 
   def create

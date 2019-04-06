@@ -1,11 +1,18 @@
 import React from 'react';
+import axios from 'axios';
 import { Container, Card, Image, Icon, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component{
   state = {
-    videos: ['This', 'that', 'theother', 'them', 'those']
+    videos: [],
   }
+
+// componentDidMount() {
+//     axios.get("/api/videos")
+//       .then( res => this.setState({ videos: res.data, }))
+//   debugger
+// }
 
   renderVideos = () => {
     const { videos } = this.state
