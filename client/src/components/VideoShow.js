@@ -2,14 +2,23 @@ import React, {Fragment} from 'react'
 import { Container, Segment, Image, Button, Header, Grid, Divider, Icon, Search, Card } from 'semantic-ui-react';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 import { Player, ControlBar, } from 'video-react';
 
 class VideoShow extends React.Component {
   state = {
     users: 'Nate',
     videos: ['This', 'that', 'theother', 'them', 'those'],
-    comments: ['Wow', 'Dank', 'Fire', 'Lit', 'Boss']
+    comments: ['poop']
   }
+
+  componentDidMount() {
+    const { match: { params: { id, video_id } } } = this.props
+    axios.get(`/api/videos/${video_id}/comments`)
+      .then( res => this.setState({ videos: res.data, }))
+    axios.get("/api/videos/")
+      .then( res => this.setState({ videos: res.data, }))
+}
 
   renderVideos = () => {
     const { videos } = this.state
@@ -30,13 +39,33 @@ class VideoShow extends React.Component {
 
     return(
     comments.map( comment => (
-      <Segment style={{ width: '100%'}}>
+      <Segment style={{ width: '100%'}} key={comment.id}>
         { comment }
+        <Button
+          onClick={this.handleDelete}
+          size='mini'
+        >
+        <Icon name='trash' />
+      </Button>
+      <Button
+        size='mini'
+      >
+        <Icon name='edit' />
+      </Button>
       </Segment>
     )
     ))
   }
+  
+  handleDelete = () => {
+    const { id, video_id, } = this.props.match.params;
+    axios.delete(`/api/videos/${video_id}/comments/${id}`)
+    .then(res => {
+    this.props.history.push(`/videos/${video_id}`)
+    })
+  }
 
+  
   render() {
     const { videos } = this.state
 
